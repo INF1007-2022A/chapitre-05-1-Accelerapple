@@ -64,7 +64,6 @@ def verify_ages(groups: List[List[int]]) -> List[bool]:
                     if age < 18 or (age > 70 and 50 in group):
                         acceptable = False
                         break
-
         list_dacceptation.append(acceptable)
 
     return list_dacceptation
