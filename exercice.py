@@ -6,29 +6,68 @@ from typing import List
 
 
 def convert_to_absolute(number: float) -> float:
-    return 0
+    if number < 0:
+        number *= -1
+    return number
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
 
-    return [""]
+    return [letter + suffixe for letter in prefixes]
 
 
 def prime_integer_summation() -> int:
-    return 0
+    list_nombre_premier = [2, 3, 5]
+    nombre = 6
+
+    while len(list_nombre_premier) < 100:
+        is_nombre_premier = True
+        for nombre_premier in list_nombre_premier:
+            if nombre % nombre_premier == 0:
+                is_nombre_premier = False
+                break
+
+        if is_nombre_premier:
+            list_nombre_premier.append(nombre)
+        nombre += 1
+
+    somme = sum(list_nombre_premier)
+    return somme
 
 
 def factorial(number: int) -> int:
-    return 0
+    factorielle = 1
+    for i in range(number):
+        factorielle *= (i+1)
+    return factorielle
 
 
 def use_continue() -> None:
-    pass
+    for i in range(1, 11):
+        if i == 5:
+            continue
+        print(i)
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    list_dacceptation = []
+    for group in groups:
+        acceptable = True
+        if len(group) > 10 or len(group) <= 3:
+            acceptable = False
+        else:
+            if 25 in group:
+                pass
+            else:
+                for age in group:
+                    if age < 18 or (age > 70 and 50 in group):
+                        acceptable = False
+                        break
+
+        list_dacceptation.append(acceptable)
+
+    return list_dacceptation
 
 
 def main() -> None:
